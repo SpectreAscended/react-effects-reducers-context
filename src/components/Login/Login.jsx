@@ -96,33 +96,27 @@ const Login = props => {
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
         <Input
-          className={`${classes.control} ${
-            emailState.isValid === false ? classes.invalid : ''
-          }`}
+          isValid={emailIsValid}
           htmlFor="email"
           type="email"
           id="email"
+          label="E-mail"
           autoComplete="username"
           value={emailState.value}
           onChange={emailChangeHandler}
           onBlur={validateEmailHandler}
-        >
-          E-mail
-        </Input>
+        />
         <Input
-          className={`${classes.control} ${
-            passwordState.isValid === false ? classes.invalid : ''
-          }`}
+          isValid={passwordIsValid}
           htmlFor="password"
           type="password"
           id="password"
+          label="Password"
           autoComplete="current-password"
           value={passwordState.value}
           onChange={passwordChangeHandler}
           onBlur={validatePasswordHandler}
-        >
-          Password
-        </Input>
+        />
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login
